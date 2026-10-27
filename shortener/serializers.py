@@ -29,7 +29,7 @@ class URLMappingSerializer(serializers.ModelSerializer):
 
         request = self.context.get("request")
 
-        mapping.short_url = request.build_absolute_uri(f"{code}")
+        mapping.short_url = request.build_absolute_uri(f"{code}/")
         mapping._is_created = created
 
         return mapping

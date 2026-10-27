@@ -1,7 +1,9 @@
+from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
 from rest_framework import viewsets, status
 
+from .models import URLMapping
 from .serializers import URLMappingSerializer
 
 
@@ -17,3 +19,8 @@ class URLMappingViewSet(viewsets.ViewSet):
                 return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def retrieve(self, request, pk=None):
+        mapping = get_object_or_404(URLMapping, code=pk)
+        serializer = URLMappingSerializer(mapping)
+        return Response(serializer.data, status=status.HTTP_200_OK)
