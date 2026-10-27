@@ -1,8 +1,8 @@
-from shortener.utils import get_short_url
+from shortener.utils import get_short_code
 
 
-def test_getting_shortened_url():
-    url = get_short_url()
+def test_getting_short_code():
+    code = get_short_code()
 
-    assert url.startswith("http://localhost:8000/shrt/")
-    assert len(url) == 34
+    assert isinstance(code, str)
+    assert len(code) == 7

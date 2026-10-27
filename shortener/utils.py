@@ -1,11 +1,10 @@
 import secrets
 
 
-def get_short_url() -> str:
+def get_short_code() -> str:
     """
     Creates shortened url.
 
     :return: Shortened url
     """
-    token = secrets.token_urlsafe(5)
-    return f"http://localhost:8000/shrt/{token}"
+    return secrets.token_urlsafe(5)
