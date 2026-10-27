@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class URLMapping(models.Model):
+    original_url = models.URLField()
+    code = models.CharField(unique=True, max_length=7)
